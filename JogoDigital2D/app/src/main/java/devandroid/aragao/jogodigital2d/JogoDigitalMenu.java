@@ -17,6 +17,12 @@ public class JogoDigitalMenu extends AppCompatActivity {
 //        } catch (InterruptedException e) {
 //            throw new RuntimeException(e);
 //        }
+        Cenario cenario = new Cenario(this);
+        Som som = new Som(this);
+
+        som.tocarFalas(1);
+        som.tocarSom(2);
+
         Intent intent = new Intent(JogoDigitalMenu.this, MainActivity.class);
         startActivity(intent);
     }
