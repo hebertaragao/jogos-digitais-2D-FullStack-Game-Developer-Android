@@ -2,6 +2,7 @@ package devandroid.aragao.jogodigital2d;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
 public class Obstaculo {
@@ -18,6 +19,20 @@ public class Obstaculo {
     private Bitmap obstaculoSuperior;
 
     public Obstaculo(Cenario cenario, int posicao, Context context){
+
+        this.posicao = posicao;
+        this.cenario = cenario;
+
+        this.alturaDoObstaculoInferior = cenario.getAltura() - TAMANHO_DO_OBSTACULO - gerarValorAleatorio();
+        this.alturaDoObstaculoSuperior = TAMANHO_DO_OBSTACULO + gerarValorAleatorio();
+
+        Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.objeto_obstaculo);
+
+        this.obstaculoInferior = Bitmap.createScaledBitmap(bp, LARGURA_DO_OBSTACULO, this.alturaDoObstaculoInferior, false);
+        this.obstaculoSuperior = Bitmap.createScaledBitmap(bp, LARGURA_DO_OBSTACULO, this.alturaDoObstaculoSuperior, false);
+
+
+
 
     }
     public void adicionarCamada(Canvas canvas){}
