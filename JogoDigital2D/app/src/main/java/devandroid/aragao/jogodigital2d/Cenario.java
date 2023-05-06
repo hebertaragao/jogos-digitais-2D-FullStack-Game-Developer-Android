@@ -14,4 +14,8 @@ public class Cenario {
         display.getMetrics(metrics);
 
     }
+
+    public float getLargura() {
+        return 1;
+    }
 }
