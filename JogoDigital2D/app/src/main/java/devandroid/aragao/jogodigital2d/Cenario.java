@@ -15,7 +15,10 @@ public class Cenario {
 
     }
 
-    public float getLargura() {
-        return 1;
+    public int getLargura() {
+        return metrics.widthPixels;
+    }
+    public int getAltura(){
+        return metrics.heightPixels;
     }
 }
