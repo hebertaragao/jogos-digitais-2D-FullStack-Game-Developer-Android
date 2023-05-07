@@ -31,14 +31,14 @@ public class Obstaculo {
         this.obstaculoInferior = Bitmap.createScaledBitmap(bp, LARGURA_DO_OBSTACULO, this.alturaDoObstaculoInferior, false);
         this.obstaculoSuperior = Bitmap.createScaledBitmap(bp, LARGURA_DO_OBSTACULO, this.alturaDoObstaculoSuperior, false);
 
-
-
-
     }
-    public void adicionarCamada(Canvas canvas){}
+    public void adicionarObstaculoNoCenario(Canvas canvas){
+        desenharObstaculoInferiorNoCenario(canvas);
+        desenharObstaculosSuperiorNoCenario(canvas);
+    }
 
-    public void desenharObstaculoInferiorNaCamada(Canvas canvas){}
-    public void desenharObstaculosSuperiorNaCamada(Canvas canvas){}
+    public void desenharObstaculoInferiorNoCenario(Canvas canvas){}
+    public void desenharObstaculosSuperiorNoCenario(Canvas canvas){}
     public void movimentarObstaculo(){}
     public int gerarValorAleatorio(){return 0;}
 
