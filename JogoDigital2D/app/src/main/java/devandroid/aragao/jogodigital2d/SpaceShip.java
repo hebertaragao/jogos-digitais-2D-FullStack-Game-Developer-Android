@@ -34,7 +34,9 @@ public class SpaceShip {
 
     }
 
-    public void adicionarCamada(Canvas canvas){}
+    public void adicionarCamada(Canvas canvas){
+        canvas.drawBitmap(spaceShip,hangar - RAIO, altura, null);
+    }
 
     public void navegacaoDown(){}
 
