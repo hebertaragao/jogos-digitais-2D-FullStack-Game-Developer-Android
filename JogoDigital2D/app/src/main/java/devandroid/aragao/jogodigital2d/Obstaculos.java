@@ -55,7 +55,15 @@ public class Obstaculos {
         }
     }
 
-    public boolean verificarColisao() {
-        return true;
+    public boolean verificarColisao(SpaceShip spaceShip) {
+
+        for (Obstaculo obstaculo:obstaculoList) {
+            if (obstaculo.verificarColisaoVertical(spaceShip)&& obstaculo.verificarColisaoHorizontal(spaceShip)){
+                return true;
+
+            }
+            
+        }
+        return false;
     }
 }
