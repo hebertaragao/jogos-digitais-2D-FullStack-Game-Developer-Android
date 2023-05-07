@@ -45,7 +45,13 @@ public class SpaceShip {
         }
     }
 
-    public void navegacaoUp(){}
+    public void navegacaoUp(){
+        bordaSuperior = altura - RAIO;
+        if (bordaSuperior > 0){
+            som.tocarSom(Som.MOVIMENTO);
+            this.altura -= 100;
+        }
+    }
 
     public int getHangar() {
         return hangar;
