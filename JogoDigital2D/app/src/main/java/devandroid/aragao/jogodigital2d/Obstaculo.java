@@ -53,6 +53,11 @@ public class Obstaculo {
     public boolean verificarSeObstaculoSaiuDoCenario(){
         return posicao + LARGURA_DO_OBSTACULO  < 0;}
 
-    public boolean verificarColisaoVertical(SpaceShip spaceShip){return true;}
-    public boolean verificarColisaoHorizontal(SpaceShip spaceShip){return true;}
+    public boolean verificarColisaoVertical(SpaceShip spaceShip){
+        return spaceShip.getAltura() - SpaceShip.RAIO < this.alturaDoObstaculoSuperior
+                || spaceShip.getAltura() + SpaceShip.RAIO > this.alturaDoObstaculoInferior;
+    }
+    public boolean verificarColisaoHorizontal(SpaceShip spaceShip){
+        return this.posicao - spaceShip.hangar < SpaceShip.RAIO;
+    }
 }
