@@ -46,10 +46,12 @@ public class Obstaculo {
     public void movimentarObstaculo(){
         posicao -= 5;
     }
-    public int gerarValorAleatorio(){return 0;}
+    public int gerarValorAleatorio(){
+        return (int) (Math.random()*150);}
 
     public int getPosicao() {return posicao;}
-    public boolean verificarSeObstaculoSaiuDoCenario(){return true;}
+    public boolean verificarSeObstaculoSaiuDoCenario(){
+        return posicao + LARGURA_DO_OBSTACULO  < 0;}
 
     public boolean verificarColisaoVertical(){return true;}
     public boolean verificarPosicaoHorizontal(){return true;}
