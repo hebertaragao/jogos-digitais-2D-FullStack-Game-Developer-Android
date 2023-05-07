@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class Obstaculos {
     int QUANTIDADE_DE_OBSTACULOS = 50;
@@ -42,6 +43,16 @@ public class Obstaculos {
     }
 
     public void moverObstaculos() {
+        ListIterator<Obstaculo> obstaculoListIterator = obstaculoList.listIterator();
+        while (obstaculoListIterator.hasNext()) {
+            Obstaculo obstaculo = obstaculoListIterator.next();
+            obstaculo.movimentarObstaculo();
+            if (obstaculo.verificarSeObstaculoSaiuDoCenario()) {
+                obstaculoListIterator.remove();
+                Obstaculo novoObstaculo = new Obstaculo(cenario, maximo + DISTANCIA_ENTRE_OBSTACULOS, context);
+                obstaculoListIterator.add(novoObstaculo);
+            }
+        }
     }
 
     public boolean verificarColisao() {
