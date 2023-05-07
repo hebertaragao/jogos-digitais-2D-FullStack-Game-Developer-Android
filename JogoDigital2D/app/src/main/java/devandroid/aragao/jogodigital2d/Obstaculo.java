@@ -43,7 +43,9 @@ public class Obstaculo {
     public void desenharObstaculosSuperiorNoCenario(Canvas canvas){
         canvas.drawBitmap(obstaculoSuperior, posicao,0,null);
     }
-    public void movimentarObstaculo(){}
+    public void movimentarObstaculo(){
+        posicao -= 5;
+    }
     public int gerarValorAleatorio(){return 0;}
 
     public int getPosicao() {return posicao;}
