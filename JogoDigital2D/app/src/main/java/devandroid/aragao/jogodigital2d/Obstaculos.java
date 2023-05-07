@@ -1,13 +1,14 @@
 package devandroid.aragao.jogodigital2d;
 
 import android.content.Context;
+import android.graphics.Canvas;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Obstaculos {
     int QUANTIDADE_DE_OBSTACULOS = 50;
-    int DISTANCIA_ENTRE_OBSTACULOS =150;
+    int DISTANCIA_ENTRE_OBSTACULOS = 150;
 
     List<Obstaculo> obstaculoList = new ArrayList<>();
 
@@ -15,15 +16,35 @@ public class Obstaculos {
 
     Pontuacao pontuacao;
 
-    int maximo = 0;
-
     Context context;
 
-    public Obstaculos(){}
+    int maximo = 0;
+    int posicaoInicial = 0;
 
-    public void adicionarCamada(){}
+    public Obstaculos() {
+        this.cenario = cenario;
+        this.pontuacao = pontuacao;
+        this.context = context;
 
-    public void moverObstaculos(){}
+        for (int i = 0; i < QUANTIDADE_DE_OBSTACULOS; i++) {
+            posicaoInicial += DISTANCIA_ENTRE_OBSTACULOS;
+            obstaculoList.add(new Obstaculo(cenario, posicaoInicial, context));
+        }
+        for (Obstaculo obstaculo : obstaculoList) {
+            maximo = Math.max(obstaculo.getPosicao(), maximo);
+        }
+    }
 
-    public boolean verificarColisao(){return true;}
+    public void adicionarCamada(Canvas canvas) {
+        for (Obstaculo obstaculo : obstaculoList) {
+            obstaculo.adicionarObstaculoNoCenario(canvas);
+        }
+    }
+
+    public void moverObstaculos() {
+    }
+
+    public boolean verificarColisao() {
+        return true;
+    }
 }
