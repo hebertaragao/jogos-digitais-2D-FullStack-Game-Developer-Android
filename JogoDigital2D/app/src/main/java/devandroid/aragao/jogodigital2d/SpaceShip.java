@@ -38,7 +38,12 @@ public class SpaceShip {
         canvas.drawBitmap(spaceShip,hangar - RAIO, altura, null);
     }
 
-    public void navegacaoDown(){}
+    public void navegacaoDown(){
+        isRodape = altura - RAIO > cenario.getAltura();
+        if (!isRodape){
+            this.altura += 5;
+        }
+    }
 
     public void navegacaoUp(){}
 
